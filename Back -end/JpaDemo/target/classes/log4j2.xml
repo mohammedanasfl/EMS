@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+<properties>
+<property name="pattern"> %d{dd-MM-yyy HH:mm:ss:SSS} [%t] %-5level %loggers{36}- %msg%n</property>
+</properties>
+<Appenders>
+<console name="consoleAppenders" target="SYSTEM_OUT">
+<patternlayout pattern="${pattern}"/>
+</console>
+<file name="fileAppenders" fileName="C:/log/employee.log">
+<patternlayout pattern="${pattern}"/>
+</file>
+
+</Appenders>
+<loggers>
+<root level="info">
+<AppenderRef  ref="consoleAppenders"/>
+</root>
+<logger name="com.example" level="debug">
+<AppenderRef ref="fileAppenders"/>
+</logger>
+
+</loggers>
+</Configuration>
