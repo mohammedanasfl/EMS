@@ -1,0 +1,16 @@
+.create{
+    margin-top: 10px;
+}
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+
+}
+span{
+    color: red;
+}
+ng-multiselect-dropdown{
+    margin-top: 20px;
+}
+.status{
+    margin-bottom: 10px;
+}

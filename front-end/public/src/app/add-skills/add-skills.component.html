@@ -1,0 +1,16 @@
+<div>
+
+    <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div class="form-group space">
+            <label for="skill" class="space">Enter the Skill:</label>
+            <input type="text" id="skill"class="form-control space" name="skill"#myInput="ngModel" ngModel required/>
+            <span *ngIf="myInput.touched && myInput.invalid">Value required</span>
+        </div>
+        <div class="form-group space">
+            <button type="submit" class="btn btn-danger space">Add</button>
+        </div>
+    </form>
+
+    
+
+</div>

@@ -1,0 +1,63 @@
+<div>
+    <form class="create" (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+        <div class="form-group">
+            <label for="firstName">Enter First Name</label>
+            <input class="form-control" id="firstName" name="firstName" #myInput="ngModel" ngModel required>
+            <span class="help-block" *ngIf="myInput.touched && myInput.invalid">please Enter the Value</span>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Enter Last Name</label>
+            <input class="form-control" id="lastName" name="lastName" #LastNameInput="ngModel" ngModel required>
+            <span class="help-block" *ngIf="LastNameInput.touched && LastNameInput.invalid">please Enter the Value</span>
+        </div>
+        <div class="form-group">
+            <label for="email">Enter Email</label>
+            <input class="form-control" id="email" name="email" #emailinput="ngModel" ngModel required>
+            <span class="help-block" *ngIf="emailinput.touched && emailinput.invalid">please Enter the Value</span>
+        </div>
+        <div class="form-group">
+            <label for="department">select department</label>
+            <select name="department" id="department" class="form-control" ngModel>
+                <option value="">select</option>
+                <option *ngFor="let option of department" value={{option.value}}>{{option.display}}</option>
+            </select>
+        </div>
+        <div class="status">
+            <label for="status">select status</label>
+            <select name="status" id="status" class="form-control" ngModel>
+                <option *ngFor="let option of options" value={{option.value}}>{{option.display}}</option>
+            </select>
+        </div>
+        
+       <!-- <div class="form-group">
+  <label>Skills</label><br>
+  <div class="form-check " *ngFor="let skill of skills">
+    <input class="form-check-input"
+           type="checkbox"
+           [id]="'skill_' + skill.getId"
+           [(ngModel)]="skill.isSelected"
+           (change)="updateSelectedSkills(skill)" [ngModelOptions]="{standalone: true}">
+    <label class="form-check-label" [for]="'skill_' + skill.getId">{{ skill.getName }}</label>
+  </div>
+</div> -->
+<div class="form-group">
+<ng-multiselect-dropdown
+  [placeholder]="'Select Skills'"
+  [settings]="dropdownSettings"
+  [data]="skills"
+  [(ngModel)]="selectedItem"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+  class="dropDown"
+>
+</ng-multiselect-dropdown>
+</div>
+
+        
+        
+       
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger create" [disabled]="myForm.invalid">CreateEmployee</button>
+        </div>
+    </form>
+</div>
